@@ -1,0 +1,256 @@
+body {
+  font-family: Arial, sans-serif;
+  color: #333; }
+
+main, header {
+  width: 1000px;
+  margin: 0 auto;
+  padding: 0 15px;
+  max-width: 100%; }
+
+button, select, input {
+  background: #ccc;
+  color: #333;
+  border-radius: 6px;
+  border: 2px solid #333; }
+  button:active, button:focus, select:active, select:focus, input:active, input:focus {
+    background: #fff;
+    color: #333; }
+  button + button, select + button, input + button {
+    margin-left: 5px; }
+
+.Hamburger {
+  position: relative; }
+  .Hamburger > button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: none;
+    border: none;
+    padding: 0;
+    position: relative;
+    width: 40px;
+    height: 24px;
+    align-items: flex-start;
+    cursor: pointer;
+    display: none;
+    z-index: 2; }
+    @media screen and (max-width: 767px) {
+      .Hamburger > button {
+        display: flex; } }
+  .Hamburger__inner {
+    position: absolute;
+    width: 40px;
+    height: 4px;
+    top: 0;
+    transition-timing-function: ease;
+    transition-duration: .15s;
+    transition-property: transform;
+    border-radius: 4px;
+    background-color: #333; }
+    .Hamburger__inner:after, .Hamburger__inner:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      width: 40px;
+      height: 4px;
+      transition-timing-function: ease;
+      transition-duration: .15s;
+      transition-property: transform;
+      border-radius: 4px;
+      background-color: #333; }
+    .Hamburger__inner:before {
+      top: 10px; }
+    .Hamburger__inner:after {
+      top: 20px; }
+
+.Menu {
+  display: none;
+  position: absolute;
+  right: 100%;
+  top: 100%;
+  width: 240px;
+  padding: 10px;
+  background: #fff;
+  color: #333;
+  border-radius: 6px;
+  border: 2px solid #333;
+  z-index: 2;
+  box-shadow: -1px 1px 2px 0px; }
+  .Menu__heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; }
+  .Menu__content {
+    display: flex;
+    flex-direction: column; }
+    .Menu__content label {
+      background: #ccc;
+      color: #333;
+      border-radius: 6px;
+      border: 2px solid #333;
+      margin-bottom: 10px;
+      padding: 10px; }
+      .Menu__content label:active {
+        background: #fff;
+        color: #333; }
+  .Menu__title {
+    font-size: 36px;
+    flex-grow: 1; }
+
+.Page__heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap; }
+@media screen and (max-width: 767px) {
+  .Page__button {
+    width: 100%;
+    text-align: center; } }
+
+.Tabs {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin: 25px 0; }
+  .Tabs__item [type=radio] {
+    display: none; }
+  .Tabs__item [type=radio]:checked ~ .Tabs__label {
+    background: white;
+    border-right: 2px solid white;
+    z-index: 2; }
+  .Tabs__item [type=radio]:checked ~ .Tabs__label ~ .Tabs__content {
+    z-index: 1;
+    display: block; }
+  .Tabs__content {
+    display: none;
+    box-sizing: border-box;
+    width: 80%;
+    position: absolute;
+    top: 0;
+    left: 20%;
+    background: white;
+    right: 0;
+    padding: 20px;
+    border: 2px solid #ccc;
+    min-height: 176px; }
+    @media screen and (max-width: 767px) {
+      .Tabs__content {
+        width: 100%;
+        left: 0;
+        padding: 0;
+        border: none; } }
+  .Tabs__label {
+    box-sizing: border-box;
+    display: block;
+    width: 20%;
+    background: #eee;
+    padding: 10px;
+    border: 2px solid #ccc;
+    position: relative;
+    top: 20px;
+    right: -2px;
+    margin-bottom: 5px; }
+    @media screen and (max-width: 767px) {
+      .Tabs__label {
+        display: none; } }
+
+.Table {
+  display: table;
+  width: 100%; }
+  @media screen and (min-width: 768px) {
+    .Table {
+      border: 2px solid #333; } }
+  .Table__body {
+    display: table-row-group;
+    margin: 0;
+    padding: 0; }
+  .Table__row {
+    display: table-row;
+    padding: 0;
+    margin: 0; }
+    @media screen and (min-width: 768px) {
+      .Table__row:nth-child(2n) {
+        background: #eee; } }
+    @media screen and (max-width: 767px) {
+      .Table__row {
+        display: flex;
+        flex-direction: column;
+        border: 2px solid #ccc;
+        margin-bottom: 2px; } }
+  .Table__cell, .Table__head {
+    display: table-cell;
+    box-sizing: border-box;
+    padding: 5px;
+    position: relative; }
+    @media screen and (min-width: 768px) {
+      .Table__cell, .Table__head {
+        border-right: 2px solid #333; } }
+    .Table__cell:last-child, .Table__head:last-child {
+      border-right: none; }
+    @media screen and (max-width: 767px) {
+      .Table__cell, .Table__head {
+        padding: 0;
+        display: flex;
+        align-items: stretch;
+        line-height: 28px; }
+        .Table__cell:first-child, .Table__head:first-child {
+          background-color: #ccc;
+          line-height: 20px; }
+        .Table__cell:nth-child(2n), .Table__head:nth-child(2n) {
+          background: #eee; }
+        .Table__cell:before, .Table__head:before {
+          content: attr(data-mobile);
+          border-right: 2px solid #ccc;
+          min-width: 100px;
+          margin: 0 5px; } }
+  .Table__heading {
+    background-color: #ccc;
+    display: table-header-group;
+    font-weight: bold; }
+    @media screen and (max-width: 767px) {
+      .Table__heading {
+        display: none; } }
+  .Table__edit {
+    display: none; }
+    .Table__edit ul {
+      padding: 0;
+      display: flex;
+      list-style: none;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap; }
+      @media screen and (max-width: 767px) {
+        .Table__edit ul li {
+          width: 100%;
+          margin-bottom: 10px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center; } }
+      .Table__edit ul li input, .Table__edit ul li select {
+        flex-grow: 1;
+        margin-left: 10px; }
+      @media screen and (max-width: 767px) {
+        .Table__edit ul li button {
+          width: 100%; } }
+  .Table__asc, .Table__desc {
+    position: absolute;
+    right: 5px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    cursor: pointer; }
+  .Table__asc {
+    border-width: 0 8px 8px 8px;
+    border-color: transparent transparent #333 transparent;
+    top: 5px; }
+    .Table__asc:active, .Table__asc:focus {
+      border-color: transparent transparent #fff transparent; }
+  .Table__desc {
+    border-width: 8px 8px 0 8px;
+    border-color: #333 transparent transparent transparent;
+    bottom: 5px; }
+    .Table__desc:active, .Table__desc:focus {
+      border-color: #fff transparent transparent transparent; }
+
+/*# sourceMappingURL=main.css.map */

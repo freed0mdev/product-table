@@ -1,0 +1,356 @@
+body {
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+main, header {
+    width: 1000px;
+    margin: 0 auto;
+    padding: 0 15px;
+    max-width: 100%;
+}
+
+button, select, input {
+    background: #ccc;
+    color: #333;
+    border-radius: 6px;
+    border: 2px solid #333;
+
+    &:active, &:focus {
+        background: #fff;
+        color: #333;
+    }
+
+    & + button {
+        margin-left: 5px;
+    }
+
+}
+
+.Hamburger {
+    position: relative;
+
+    & > button {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        background: none;
+        border: none;
+        padding: 0;
+        position: relative;
+
+        width: 40px;
+        height: 24px;
+        align-items: flex-start;
+        cursor: pointer;
+        display: none;
+        z-index: 2;
+
+        @media screen and (max-width: 767px) {
+            display: flex;
+        }
+    }
+
+    &__inner {
+        position: absolute;
+        width: 40px;
+        height: 4px;
+        top: 0;
+        transition-timing-function: ease;
+        transition-duration: .15s;
+        transition-property: transform;
+        border-radius: 4px;
+        background-color: #333;
+
+        &:after, &:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            width: 40px;
+            height: 4px;
+            transition-timing-function: ease;
+            transition-duration: .15s;
+            transition-property: transform;
+            border-radius: 4px;
+            background-color: #333;
+        }
+
+        &:before {
+            top: 10px;
+        }
+
+        &:after {
+            top: 20px;
+        }
+    }
+}
+
+.Menu {
+    display: none;
+    position: absolute;
+    right: 100%;
+    top: 100%;
+    width: 240px;
+    padding: 10px;
+    background: #fff;
+    color: #333;
+    border-radius: 6px;
+    border: 2px solid #333;
+    z-index: 2;
+    box-shadow: -1px 1px 2px 0px;
+
+    &__heading {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+
+        label {
+            background: #ccc;
+            color: #333;
+            border-radius: 6px;
+            border: 2px solid #333;
+            margin-bottom: 10px;
+            padding: 10px;
+
+            &:active {
+                background: #fff;
+                color: #333;
+            }
+        }
+    }
+
+    &__close {
+
+    }
+
+    &__title {
+        font-size: 36px;
+        flex-grow: 1;
+    }
+}
+
+.Page {
+    &__heading {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+    &__button {
+        @media screen and (max-width: 767px) {
+            width: 100%;
+            text-align: center;
+        }
+    }
+}
+
+.Tabs {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin: 25px 0;
+
+    &__item {
+        [type=radio] {
+            display: none;
+        }
+
+        [type=radio]:checked ~ .Tabs__label {
+            background: white;
+            border-right: 2px solid white;
+            z-index: 2;
+        }
+        [type=radio]:checked ~ .Tabs__label ~ .Tabs__content {
+            z-index: 1;
+            display: block;
+        }
+    }
+
+    &__content {
+        display: none;
+        box-sizing: border-box;
+        width: 80%;
+        position: absolute;
+        top: 0;
+        left: 20%;
+        background: white;
+        right: 0;
+        padding: 20px;
+        border: 2px solid #ccc;
+        min-height: 176px;
+
+        @media screen and (max-width: 767px) {
+            width: 100%;
+            left: 0;
+            padding: 0;
+            border: none;
+        }
+    }
+
+    &__label {
+        box-sizing: border-box;
+        display: block;
+        width: 20%;
+        background: #eee;
+        padding: 10px;
+        border: 2px solid #ccc;
+        position: relative;
+        top: 20px;
+        right: -2px;
+        margin-bottom: 5px;
+
+        @media screen and (max-width: 767px) {
+            display: none;
+        }
+    }
+}
+
+
+.Table {
+    display: table;
+    width: 100%;
+
+    @media screen and (min-width: 768px) {
+        border: 2px solid #333;
+    }
+
+    &__body {
+        display: table-row-group;
+        margin: 0;
+        padding: 0;
+    }
+
+    &__row {
+        display: table-row;
+        padding: 0;
+        margin: 0;
+
+        @media screen and (min-width: 768px) {
+            &:nth-child(2n) {
+                background: #eee;
+            }
+        }
+
+        @media screen and (max-width: 767px) {
+            display: flex;
+            flex-direction: column;
+            border: 2px solid #ccc;
+            margin-bottom: 2px;
+        }
+    }
+
+    &__cell, &__head {
+        display: table-cell;
+        box-sizing: border-box;
+        padding: 5px;
+        position: relative;
+
+        @media screen and (min-width: 768px) {
+            border-right: 2px solid #333;
+        }
+
+        &:last-child {
+            border-right: none;
+        }
+
+        @media screen and (max-width: 767px) {
+            padding: 0;
+            display: flex;
+            align-items: stretch;
+            line-height: 28px;
+
+            &:first-child {
+                background-color: #ccc;
+                line-height: 20px;
+            }
+
+            &:nth-child(2n) {
+                background: #eee;
+            }
+
+            &:before {
+                content: attr(data-mobile);
+                border-right: 2px solid #ccc;
+                min-width: 100px;
+                margin: 0 5px;
+            }
+        }
+    }
+
+    &__heading {
+        background-color: #ccc;
+        display: table-header-group;
+        font-weight: bold;
+
+        @media screen and (max-width: 767px) {
+            display: none;
+        }
+    }
+
+    &__edit {
+        display: none;
+        ul {
+            padding: 0;
+            display: flex;
+            list-style: none;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+
+            li {
+                @media screen and (max-width: 767px) {
+                    width: 100%;
+                    margin-bottom: 10px;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                }
+
+                input, select {
+                    flex-grow: 1;
+                    margin-left: 10px;
+                }
+
+                button {
+                    @media screen and (max-width: 767px) {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+
+    &__asc, &__desc {
+        position: absolute;
+        right: 5px;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        cursor: pointer;
+    }
+
+    &__asc {
+        border-width: 0 8px 8px 8px;
+        border-color: transparent transparent #333 transparent;
+        top: 5px;
+
+        &:active, &:focus {
+            border-color: transparent transparent #fff transparent;
+        }
+    }
+
+    &__desc {
+        border-width: 8px 8px 0 8px;
+        border-color: #333 transparent transparent transparent;
+        bottom: 5px;
+
+        &:active, &:focus {
+            border-color: #fff transparent transparent transparent;
+        }
+    }
+}

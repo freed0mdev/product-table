@@ -1,0 +1,109 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="initial-scale=1.0, width=device-width"/>
+
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/main.css">
+    </head>
+    <body>
+        <header>
+            <div class="Page__heading">
+                <h1 class="Page__title">Product list 5.5-6 hours</h1>
+                <div class="Hamburger">
+                    <button type="button" class="js-menu-trigger">
+                        <span class="Hamburger__inner"></span>
+                    </button>
+                    <div class="Menu js-menu">
+                        <div class="Menu__heading">
+                            <div class="Menu__title">Menu</div>
+                            <div class="Menu__close">
+                                <button type="button" class="js-menu-close-trigger">
+                                    <span>Close</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="Menu__content js-menu-content"></div>
+                    </div>
+                </div>
+                <div class="Page__button">
+                    <button type="button" class="js-button-add">
+                        <span>Add Product</span>
+                    </button>
+                </div>
+            </div>
+        </header>
+        <main>
+            <div class="Tabs js-tabs">
+                <div class="Tabs__item">
+                    <input type="radio" id="tab-1" name="tab" checked>
+                    <label for="tab-1" class="Tabs__label">Catalog</label>
+
+                    <div class="Tabs__content">
+                        <div class="Table__edit js-edit-table">
+                            <ul>
+                                <li>SKU: <span class="js-edit-sku"></span></li>
+                                <li>Name: <input type="text" name="name" class="js-edit-name"></li>
+                                <li>Stock:
+                                    <select name="status" class="js-edit-stock">
+                                        <option value="In Stock" selected="selected">In Stock</option>
+                                        <option value="Out of Stock">Out of Stock</option>
+                                    </select>
+                                </li>
+                                <li>Status:
+                                    <select name="stock" class="js-edit-status">
+                                        <option value="Enabled" selected="selected">Enabled</option>
+                                        <option value="Disabled">Disabled</option>
+                                    </select>
+                                </li>
+                                <li><button type="button" class="js-button-save"><span>Save</span></button></li>
+                            </ul>
+                        </div>
+                        <div class="Table" id="js-table-list">
+                            <div class="Table__heading">
+                                <ul class="Table__row">
+                                    <li class="Table__head js-sort-sku">Sku <span class="Table__asc js-asc"></span><span class="Table__desc js-desc"></span></li>
+                                    <li class="Table__head js-sort-name">Name <span class="Table__asc js-asc"></span><span class="Table__desc js-desc"></span></li>
+                                    <li class="Table__head">Status</li>
+                                    <li class="Table__head">Stock</li>
+                                    <li class="Table__head">Actions</li>
+                                </ul>
+                            </div>
+                            <ul class="Table__body list">
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="Tabs__item">
+                    <input type="radio" id="tab-2" name="tab">
+                    <label for="tab-2" class="Tabs__label">Customer</label>
+
+                    <div class="Tabs__content">
+                        Customer
+                    </div>
+                </div>
+
+                <div class="Tabs__item">
+                    <input type="radio" id="tab-3" name="tab">
+                    <label for="tab-3" class="Tabs__label">Settings</label>
+                    <div class="Tabs__content">
+                        Settings
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <script src="js/vendor/modernizr-3.5.0.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.2.1.min.js"><\/script>')</script>
+        <script src="js/vendor/list.min.js"></script>
+
+        <script src="js/plugins.js"></script>
+        <script src="js/main.js"></script>
+    </body>
+</html>
